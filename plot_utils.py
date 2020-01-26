@@ -34,29 +34,36 @@ def get_subplot(target_wise_association_for_this_paper, b2e_dict, title):
     fig, ax = plt.subplots(nrows=1, ncols=2, squeeze=False)
 
     association_keys = []
-    association_keys.append([b2e_dict[word] for word in target_wise_association_for_this_paper['progressive_occupation']['islamic'].keys()])
-    association_keys.append([b2e_dict[word] for word in target_wise_association_for_this_paper['general_occupation']['radical'].keys()])
-
+    for target_key in target_wise_association_for_this_paper.keys():
+        for reference_key in target_wise_association_for_this_paper[target_key].keys(): #target_wise_association_for_this_paper['progressive_occupation']['islamic']
+            association_keys.append([b2e_dict[word] for word in target_wise_association_for_this_paper[target_key][reference_key].keys()])
+            
+            break
+        
+    
     y_values = []
-    y_values.append([list(target_wise_association_for_this_paper['progressive_occupation']['islamic'].values()),
-                    list(target_wise_association_for_this_paper['progressive_occupation']['radical'].values())])
-    y_values.append([list(target_wise_association_for_this_paper['general_occupation']['islamic'].values()),
-                    list(target_wise_association_for_this_paper['general_occupation']['radical'].values())])
-
+    
+    for target_key in target_wise_association_for_this_paper.keys():
+        this_target_y_values = []
+        for reference_key in target_wise_association_for_this_paper[target_key].keys():
+            this_target_y_values.append(list(target_wise_association_for_this_paper[target_key][reference_key].values()))
+            
+        y_values.append(this_target_y_values)
+    
+    
 
     colors = ['skyblue', 'forestgreen', 'purple', 'lightcoral', 'red', 'yellow']
     markers = ['o', 's', 'p', 'd', '>', '<']
 
-    # print(association_keys[0], y_values[0])
-
+    
     for row_idx, row in enumerate(ax):
-        # print(row)
+        
         for col_idx, col in enumerate(row):
             col.plot(association_keys[col_idx],y_values[col_idx][0], marker=markers[0], markerfacecolor=colors[0], markersize=4, 
             color=colors[0], linewidth=2)
             col.plot(association_keys[col_idx],y_values[col_idx][1], marker=markers[1], markerfacecolor=colors[1], markersize=4, 
             color=colors[1], linewidth=2)
             plt.setp(col.get_xticklabels(), rotation=45, horizontalalignment='right')
-    fig.legend(['islamic', 'radical'], loc='upper right')
+    fig.legend(list(target_wise_association_for_this_paper[target_key].keys()), loc='upper right')
     plt.title(title)
     plt.show()
