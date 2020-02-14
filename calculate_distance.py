@@ -1,4 +1,5 @@
 import numpy as np 
+from scipy.spatial.distance import cosine
 from utils import get_sorted_dict
 import traceback
 
@@ -15,12 +16,23 @@ class CalculateDistance:
         self.reference_word_groups = reference_word_groups
         self.reference_group_labels = reference_group_labels
     
-    
+    def calculate_euclidean_distance(self, word_vector, centroid_group_word_vectors):
+        return np.linalg.norm(np.array(word_vector) - np.array(centroid_group_word_vectors))
+
+    def calculate_cosine_similarity(self, word_vector, centroid_group_word_vectors):
+        return cosine(word_vector, centroid_group_word_vectors)
+
+
     def __get_group_centroid(self, model,target_word_group):
         group_vectors = []
 
         for word in target_word_group:
-            group_vectors.append(model.get_vector(word))
+            try:
+                word_vector = model.get_vector(word)
+            except:
+                print('word {} not in embedding '.format(word))
+                continue
+            group_vectors.append(word_vector)
 
         centroid_target_word_group = np.average(group_vectors, axis=0)
         return centroid_target_word_group
@@ -30,10 +42,15 @@ class CalculateDistance:
     def __get_word_associations_for_target_group(self, model, centroid_group_word_vectors, target_group_words):
         word_associations = {}
         for word in target_group_words:
-            word_vector = model.get_vector(word)
-            association = np.linalg.norm(np.array(word_vector) - np.array(centroid_group_word_vectors))
+            try:
+                word_vector = model.get_vector(word)
+            except:
+                print('word {} not in embedding '.format(word))
+                continue
+            association = self.calculate_cosine_similarity(word_vector, centroid_group_word_vectors)
             # value = np.linalg.norm(association)
             word_associations[word] = association
+        word_associations = get_sorted_dict(word_associations)
         return word_associations
 
     
