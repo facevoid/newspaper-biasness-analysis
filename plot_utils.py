@@ -1,46 +1,19 @@
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 from matplotlib.pyplot import gca
+from utils import get_sorted_dict
 
-prop = fm.FontProperties(fname='kalpurush.ttf')
-ticks_font = fm.FontProperties(family='Helvetica', style='normal',
-    size=12, weight='normal', stretch='normal')
 
-def get_plot(word_association_dict, WORDS_ENGLISH):
-    x = list(word_association_dict.keys())
-    print(type(x))
-    y = list(word_association_dict.values())
-    plt.plot(WORDS_ENGLISH,y)
-    # plt.legend(x, prop=prop)
+def get_association_subplot(target_wise_association_for_this_paper, b2e_dict, title):
     
-    # plt.xticks(fontname='Kalpurush.ttf')
-    plt.show()
-
-def test_bangla_font():
-    x = ['কাফির', 'নাস্তিক', 'ব্লগার', 'ধর্মদ্রোহী']
-    y = [1, 2, 1.5, 3]
-    a = gca()
-    a.set_xticklabels(a.get_xticks(), ticks_font)
-
-    plt.plot(x, y)
-    # plt.xticks(fontname = 'Kalpurush.ttf')
-    plt.show()
-
-# test_bangla_font()
-def get_subplot(target_wise_association_for_this_paper, b2e_dict, title):
-    
-
-
-    fig, ax = plt.subplots(nrows=1, ncols=2, squeeze=False)
-
     association_keys = []
     for target_key in target_wise_association_for_this_paper.keys():
+        # target_wise_association_for_this_paper[target_key] = get_sorted_dict(target_wise_association_for_this_paper[target_key])
         for reference_key in target_wise_association_for_this_paper[target_key].keys(): #target_wise_association_for_this_paper['progressive_occupation']['islamic']
             association_keys.append([b2e_dict[word] for word in target_wise_association_for_this_paper[target_key][reference_key].keys()])
             
             break
-        
-    
+    fig, ax = plt.subplots(nrows=1, ncols=len(association_keys), squeeze=False)
     y_values = []
     
     for target_key in target_wise_association_for_this_paper.keys():
@@ -67,3 +40,18 @@ def get_subplot(target_wise_association_for_this_paper, b2e_dict, title):
     fig.legend(list(target_wise_association_for_this_paper[target_key].keys()), loc='upper right')
     plt.title(title)
     plt.show()
+
+
+def get_bias_plot(bias_dict, b2e_dict):
+    for key in bias_dict.keys():
+        plt.close()
+        sorted_dict = get_sorted_dict(bias_dict[key])
+        x_labels = [b2e_dict[word] for word in sorted_dict.keys()]
+        y_labels = list(sorted_dict.values())
+        plt.xticks(rotation=60)
+        plt.plot(x_labels, y_labels, marker='o', markersize = 4, linewidth = 2)
+        plt.legend(['male_bias'])
+        plt.title(key)
+        plt.show()
+
+
