@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 from matplotlib.pyplot import gca
 from utils import get_sorted_dict
-
+import seaborn as sns
 
 def get_association_subplot(target_wise_association_for_this_paper, b2e_dict, title):
     
@@ -54,4 +54,49 @@ def get_bias_plot(bias_dict, b2e_dict):
         plt.title(key)
         plt.show()
 
+def get_all_bias_in_single_plot_label_vs_year(bias_dict, words,labels):
+    colors = ['skyblue', 'forestgreen', 'purple', 'lightcoral']
+    markers = ['o', 's', 'p', 'd']
+    years = list(bias_dict.keys())
 
+    year_wise_bias = []
+    for key in years:
+        bias_for_this_year = []
+        for word in words:
+            bias_for_this_year.append(bias_dict[key].get(word, 0))
+        year_wise_bias.append(bias_for_this_year)
+        plt.plot(labels, bias_for_this_year, label = key)
+    plt.xticks(rotation=60)
+    plt.legend(loc="upper left")
+    plt.show()
+
+
+
+def get_all_bias_in_single_plot_year_vs_label(bias_dict, b2e, limit = None):
+
+
+    years = ['2005', '2008', '2011', '2014', '2017']
+    labels = list(get_sorted_dict(bias_dict['2017']).keys())
+    
+
+    if limit is not None:
+        minimized_labels = labels[:limit] + labels[-limit:]
+    else:
+        minimized_labels = labels
+
+    # print(minimized_labels)
+    minimized_labels_english = [b2e[label] for label in minimized_labels]
+
+    for label in minimized_labels:
+        bias_for_this_label = []
+        for year in years:
+            bias_for_this_label.append(bias_dict[year].get(label, None))
+        plt.plot(years, bias_for_this_label)
+        plt.legend(minimized_labels_english, loc='center left', bbox_to_anchor=(1, 0.5))
+    plt.show()
+
+
+def get_correlation_heatmap(df):
+    sns.heatmap(df.corr(), annot=True, fmt=".2f", vmin=-1, vmax=1,
+            cmap='coolwarm')
+    plt.show()
