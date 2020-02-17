@@ -97,6 +97,7 @@ def get_all_bias_in_single_plot_year_vs_label(bias_dict, b2e, limit = None):
 
 
 def get_correlation_heatmap(df):
-    sns.heatmap(df.corr(), annot=True, fmt=".2f", vmin=-1, vmax=1,
+    # print('change ')
+    sns.heatmap(df.corr(), annot=True,  vmin=-.0001, vmax=1,
             cmap='coolwarm')
     plt.show()
