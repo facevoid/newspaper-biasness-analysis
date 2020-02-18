@@ -12,4 +12,6 @@ PROGRESSIVE_WORDS_ENGLISH = ['Actor', 'Actress', 'Artist', 'Educator', 'Painter'
 RADICAL_WORDS = ['কাফির', 'নাস্তিক', 'ব্লগার', 'ধর্মদ্রোহী', 'দুর্বৃত্ত', 'অবিশ্বাসী',  'বদমাশ', 'ব্যভিচারী']
 RADICAL_WORDS_ENGLISH = ['Infidel', 'atheist', 'blogger', 'heretic', 'mischievous', 'unbeliever', 'scornful', 'adulterous']
 
+SHAHBAG_WORDS = ['শাহবাগ' , 'রাজাকার', 'চেতনা', 'একাত্তর',  'প্রগতিশীল', 'মুক্তমনা', 'সাঈদী',  'গণজাগরণ', 'মুক্তিযুদ্ধ', 'ধর্মনিরপেক্ষ', 'নাস্তিক']
+FUNDAMENTALIST_WORDS = ['ইসলামী', 'জঙ্গী', 'ফতোয়া', 'ইসলাম', 'জিহাদ', 'হাদিস', 'সুন্নাহ', 'কুরআন', 'নবী', 'আল্লামা', 'ইমান', 'পর্দা', 'হারাম']
 
