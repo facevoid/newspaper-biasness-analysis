@@ -29,10 +29,11 @@ class CalculateDistance:
         for word in target_word_group:
             try:
                 word_vector = model.get_vector(word)
+                group_vectors.append(word_vector)
             except:
                 print('word {} not in embedding '.format(word))
                 traceback.print_exc(limit=3)
-            group_vectors.append(word_vector)
+            
 
         centroid_target_word_group = np.average(group_vectors, axis=0)
         return centroid_target_word_group

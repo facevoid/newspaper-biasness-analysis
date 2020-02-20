@@ -11,6 +11,7 @@ def get_association_subplot(target_wise_association_for_this_paper, b2e_dict, ti
         # target_wise_association_for_this_paper[target_key] = get_sorted_dict(target_wise_association_for_this_paper[target_key])
         for reference_key in target_wise_association_for_this_paper[target_key].keys(): #target_wise_association_for_this_paper['progressive_occupation']['islamic']
             association_keys.append([b2e_dict[word] for word in target_wise_association_for_this_paper[target_key][reference_key].keys()])
+            association_keys_english = list(target_wise_association_for_this_paper[target_key][reference_key].keys())
             
             break
     fig, ax = plt.subplots(nrows=1, ncols=len(association_keys), squeeze=False)
@@ -19,7 +20,11 @@ def get_association_subplot(target_wise_association_for_this_paper, b2e_dict, ti
     for target_key in target_wise_association_for_this_paper.keys():
         this_target_y_values = []
         for reference_key in target_wise_association_for_this_paper[target_key].keys():
-            this_target_y_values.append(list(target_wise_association_for_this_paper[target_key][reference_key].values()))
+            # this_target_y_values.append(list(target_wise_association_for_this_paper[target_key][reference_key].values()))
+            this_values = []
+            for key in association_keys_english:
+                this_values.append(target_wise_association_for_this_paper[target_key][reference_key][key])
+            this_target_y_values.append(this_values)
             
         y_values.append(this_target_y_values)
     
@@ -57,8 +62,9 @@ def get_bias_plot(bias_dict, b2e_dict, bias_label):
 def get_all_bias_in_single_plot_label_vs_year(bias_dict, words,labels):
     colors = ['skyblue', 'forestgreen', 'purple', 'lightcoral']
     markers = ['o', 's', 'p', 'd']
-    # years = list(bias_dict.keys())
-    years = ['2005', '2008', '2011', '2014', '2017']
+    years = list(bias_dict.keys())
+    if '2005' in years:
+        years = ['2005', '2008', '2011', '2014', '2017']
 
     year_wise_bias = []
     for key in years:
@@ -68,7 +74,7 @@ def get_all_bias_in_single_plot_label_vs_year(bias_dict, words,labels):
         year_wise_bias.append(bias_for_this_year)
         plt.plot(labels, bias_for_this_year, label = key)
     plt.xticks(rotation=75)
-    plt.legend(loc="upper left")
+    plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.show()
 
 
@@ -77,7 +83,11 @@ def get_all_bias_in_single_plot_year_vs_label(bias_dict, b2e, limit = None):
 
 
     years = ['2005', '2008', '2011', '2014', '2017']
-    labels = list(get_sorted_dict(bias_dict['2017']).keys())
+    if 'prothomalo' in bias_dict.keys():
+        years = list(bias_dict.keys())
+        labels = list(get_sorted_dict(bias_dict['prothomalo']).keys())
+    else:
+        labels = list(get_sorted_dict(bias_dict['2017']).keys())
     
 
     if limit is not None:
@@ -94,6 +104,7 @@ def get_all_bias_in_single_plot_year_vs_label(bias_dict, b2e, limit = None):
             bias_for_this_label.append(bias_dict[year].get(label, None))
         plt.plot(years, bias_for_this_label)
         plt.legend(minimized_labels_english, loc='center left', bbox_to_anchor=(1, 0.5))
+    plt.xticks(rotation=75)
     plt.show()
 
 

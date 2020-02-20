@@ -12,13 +12,13 @@ FEMALE_WORDS_ENGLISH = ['Daughter', 'girl',  'mother', 'mother', 'woman', 'girls
 # PROFESSIONAL_OCCUPATIONS_ENGLISH = ['Statistician', 'photographer', 'geologist', 'accountant', 'physicist', 'psychologist', 'caretaker', 'mathematician', 'designer', 'economist', 'postmaster', 'librarian', 'scientist', 'trainer', 'pilot', 'administrator', 'architect', 'surgeon', 'nurse', 'engineer', 'lawyer', 'physician', 'director',
 # 'Officer','doctor',' professor','student ','Judges', 'teachers', 'writers']
 
-PROFESSIONAL_OCCUPATIONS_BANGLA = ['পরিসংখ্যানবিদ', 'গৃহিণী', 'ফটোগ্রাফার', 'অ্যাথলেট', 'নর্তকী', 
+PROFESSIONAL_OCCUPATIONS_BANGLA = ['পরিসংখ্যানবিদ',  'ফটোগ্রাফার', 'অ্যাথলেট', 'নৃত্যশিল্পী', 
 'গৃহকর্মী', 'হিসাবরক্ষক', 'পদার্থবিদ', 'তাঁতী', 'কামার', 'মনোবিজ্ঞানী', 'তত্ত্বাবধায়ক', 'গণিতবিদ', 'সমীক্ষক', 'দর্জি', 'ডিজাইনার', 'অর্থনীতিবিদ', 'শ্রমিক', 
 'দালাল', 'গ্রন্থাগারিক',  'সংগীতজ্ঞ' , 'পোর্টার', 'বিজ্ঞানী', 'স্থপতি', 'অপারেটর', 'সার্জন', 'ড্রাইভার', 'কন্ডাক্টর', 'নার্স', 'কুক', 'প্রকৌশলী',
- 'আইনজীবী', 'কৃষক', 'কেরানি', 'ব্যবস্থাপক', 'শিল্পী', 'পুলিশ', 'ডাক্তার', 'অধ্যাপক', 'ছাত্র', 'ছাত্রী', 'বিচারক' , 'শিক্ষক', 'লেখক', 'সচিব', 'সৈনিক', 'শিক্ষিকা', 'সাংসদ']
+ 'আইনজীবী', 'কৃষক', 'কেরানি', 'ব্যবস্থাপক', 'শিল্পী', 'পুলিশ', 'ডাক্তার', 'অধ্যাপক',  'বিচারক' , 'শিক্ষক', 'লেখক', 'সচিব', 'সৈনিক',  'সাংসদ']
 
-PROFESSIONAL_OCCUPATIONS_ENGLISH = ['Statistician', 'housewife', 'photographer', 'athlete', 'dancer',
+PROFESSIONAL_OCCUPATIONS_ENGLISH = ['Statistician', 'photographer', 'athlete', 'dancer',
 'Housekeeper', 'accountant', 'physicist', 'weaver', 'carpenter', 'psychologist', 'caretaker', 'mathematician', 'surveyor', 'tailor', 'designer', 'economist', 'laborer',
 'Broker', 'librarian', 'musician', 'porter', 'scientist',  'architect', 'operator', 'surgeon', 'driver', 'conductor', 'nurse' ,'Cook','engineer',
-'Lawyer', 'farmer', 'clerk', 'manager', 'artist', 'police', 'doctor', 'professor', 'male student', 'female student', 'judge' ,' Teacher ',' writer ',' secretary '
-,'soldier',' teacher ',' MP ']
+'Lawyer', 'farmer', 'clerk', 'manager', 'artist', 'police', 'doctor', 'professor',  'judge' ,' Teacher ',' writer ',' secretary '
+,'soldier',' MP ']
