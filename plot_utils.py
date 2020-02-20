@@ -44,6 +44,8 @@ def get_association_subplot(target_wise_association_for_this_paper, b2e_dict, ti
             plt.setp(col.get_xticklabels(), rotation=75, horizontalalignment='right')
     fig.legend(list(target_wise_association_for_this_paper[target_key].keys()), loc='upper right')
     plt.title(title)
+    # plt.axhline(y=0)
+    # plt.hlines(y=0, xmin=0, xmax=len(association_keys))
     plt.show()
 
 
@@ -56,6 +58,7 @@ def get_bias_plot(bias_dict, b2e_dict, bias_label):
         plt.xticks(rotation=85)
         plt.plot(x_labels, y_labels, marker='o', markersize = 4, linewidth = 2)
         plt.legend([bias_label])
+        plt.axhline(y=0, color='k')
         plt.title(key)
         plt.show()
 
@@ -74,6 +77,7 @@ def get_all_bias_in_single_plot_label_vs_year(bias_dict, words,labels):
         year_wise_bias.append(bias_for_this_year)
         plt.plot(labels, bias_for_this_year, label = key)
     plt.xticks(rotation=75)
+    plt.axhline(y=0, color='k')
     plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     plt.show()
 
@@ -105,6 +109,7 @@ def get_all_bias_in_single_plot_year_vs_label(bias_dict, b2e, limit = None):
         plt.plot(years, bias_for_this_label)
         plt.legend(minimized_labels_english, loc='center left', bbox_to_anchor=(1, 0.5))
     plt.xticks(rotation=75)
+    plt.axhline(y=0, color='k')
     plt.show()
 
 
