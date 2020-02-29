@@ -55,7 +55,7 @@ def get_bias_plot(bias_dict, b2e_dict, bias_label):
         sorted_dict = get_sorted_dict(bias_dict[key])
         x_labels = [b2e_dict[word] for word in sorted_dict.keys()]
         y_labels = list(sorted_dict.values())
-        plt.xticks(rotation=85)
+        plt.xticks(rotation=75)
         plt.plot(x_labels, y_labels, marker='o', markersize = 4, linewidth = 2)
         plt.legend([bias_label])
         plt.axhline(y=0, color='k')
