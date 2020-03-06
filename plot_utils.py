@@ -14,7 +14,8 @@ def get_association_subplot(target_wise_association_for_this_paper, b2e_dict, ti
             association_keys_english = list(target_wise_association_for_this_paper[target_key][reference_key].keys())
             
             break
-    fig, ax = plt.subplots(nrows=1, ncols=len(association_keys), squeeze=False)
+    fig, ax = plt.subplots(nrows=1, ncols=len(association_keys), squeeze=False, figsize=(20, 10))
+    
     y_values = []
     
     for target_key in target_wise_association_for_this_paper.keys():
@@ -44,6 +45,9 @@ def get_association_subplot(target_wise_association_for_this_paper, b2e_dict, ti
             plt.setp(col.get_xticklabels(), rotation=75, horizontalalignment='right')
     fig.legend(list(target_wise_association_for_this_paper[target_key].keys()), loc='upper right')
     plt.title(title)
+    
+    plt.tight_layout()
+    plt.xticks(fontsize=14)
     # plt.axhline(y=0)
     # plt.hlines(y=0, xmin=0, xmax=len(association_keys))
     plt.show()
@@ -52,14 +56,17 @@ def get_association_subplot(target_wise_association_for_this_paper, b2e_dict, ti
 def get_bias_plot(bias_dict, b2e_dict, bias_label):
     for key in bias_dict.keys():
         plt.close()
+        fig = plt.figure(figsize=(20, 10))
+        ax = fig.add_subplot(111)
         sorted_dict = get_sorted_dict(bias_dict[key])
         x_labels = [b2e_dict[word] for word in sorted_dict.keys()]
         y_labels = list(sorted_dict.values())
-        plt.xticks(rotation=75)
-        plt.plot(x_labels, y_labels, marker='o', markersize = 4, linewidth = 2)
+        plt.xticks(rotation=75, fontsize=14)
+        ax.plot(x_labels, y_labels, marker='o', markersize = 4, linewidth = 2)
         plt.legend([bias_label])
         plt.axhline(y=0, color='k')
         plt.title(key)
+        plt.tight_layout()
         plt.show()
 
 def get_all_bias_in_single_plot_label_vs_year(bias_dict, words,labels):
