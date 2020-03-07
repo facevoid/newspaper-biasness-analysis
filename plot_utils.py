@@ -10,7 +10,7 @@ def get_association_subplot(target_wise_association_for_this_paper, b2e_dict, ti
     for target_key in target_wise_association_for_this_paper.keys():
         # target_wise_association_for_this_paper[target_key] = get_sorted_dict(target_wise_association_for_this_paper[target_key])
         for reference_key in target_wise_association_for_this_paper[target_key].keys(): #target_wise_association_for_this_paper['progressive_occupation']['islamic']
-            association_keys.append([b2e_dict[word] for word in target_wise_association_for_this_paper[target_key][reference_key].keys()])
+            association_keys.append([word for word in target_wise_association_for_this_paper[target_key][reference_key].keys()])
             association_keys_english = list(target_wise_association_for_this_paper[target_key][reference_key].keys())
             
             break
@@ -59,7 +59,7 @@ def get_bias_plot(bias_dict, b2e_dict, bias_label):
         fig = plt.figure(figsize=(20, 10))
         ax = fig.add_subplot(111)
         sorted_dict = get_sorted_dict(bias_dict[key])
-        x_labels = [b2e_dict[word] for word in sorted_dict.keys()]
+        x_labels = [word for word in sorted_dict.keys()]
         y_labels = list(sorted_dict.values())
         plt.xticks(rotation=75, fontsize=14)
         ax.plot(x_labels, y_labels, marker='o', markersize = 4, linewidth = 2)
