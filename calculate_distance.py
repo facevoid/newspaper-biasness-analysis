@@ -1,6 +1,7 @@
 import numpy as np 
 from scipy.spatial.distance import cosine
 from utils import get_sorted_dict
+from sklearn.metrics.pairwise import cosine_similarity
 import traceback
 
 class CalculateDistance:
@@ -20,7 +21,8 @@ class CalculateDistance:
         return np.linalg.norm(np.array(word_vector) - np.array(centroid_group_word_vectors))
 
     def calculate_cosine_similarity(self, word_vector, centroid_group_word_vectors):
-        return cosine(word_vector, centroid_group_word_vectors)
+        # return cosine(word_vector, centroid_group_word_vectors)
+        return cosine_similarity([word_vector], [centroid_group_word_vectors])[0]
 
 
     def __get_group_centroid(self, model,target_word_group):
