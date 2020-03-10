@@ -7,6 +7,7 @@ import traceback
 class CalculateDistance:
     def __init__(self):
         super().__init__()
+        self.missing_words = set()
     
     def set_target_word_groups(self, target_word_groups, target_group_labels):
         self.target_word_groups = target_word_groups
@@ -21,8 +22,8 @@ class CalculateDistance:
         return np.linalg.norm(np.array(word_vector) - np.array(centroid_group_word_vectors))
 
     def calculate_cosine_similarity(self, word_vector, centroid_group_word_vectors):
-        # return cosine(word_vector, centroid_group_word_vectors)
-        return cosine_similarity([word_vector], [centroid_group_word_vectors])[0]
+        return cosine(word_vector, centroid_group_word_vectors)
+        # return cosine_similarity([word_vector], [centroid_group_word_vectors])[0]
 
 
     def __get_group_centroid(self, model,target_word_group):
@@ -33,8 +34,9 @@ class CalculateDistance:
                 word_vector = model.get_vector(word)
                 group_vectors.append(word_vector)
             except:
-                print('word {} not in embedding '.format(word))
-                traceback.print_exc(limit=3)
+                self.missing_words.add(word)
+                # print('word {} not in embedding '.format(word))
+                # traceback.print_exc(limit=3)
             
 
         centroid_target_word_group = np.average(group_vectors, axis=0)
@@ -48,7 +50,8 @@ class CalculateDistance:
             try:
                 word_vector = model.get_vector(word)
             except:
-                print('word {} not in embedding '.format(word))
+                # print('word {} not in embedding '.format(word))
+                self.missing_words.add(word)
                 continue
             association = self.calculate_cosine_similarity(word_vector, centroid_group_word_vectors)
             # value = np.linalg.norm(association)
@@ -76,4 +79,4 @@ class CalculateDistance:
             target_wise_association_for_this_paper[target_group] = association_dict_this_paper
         # print('from class')
         # print(target_wise_association_for_this_paper)
-        return target_wise_association_for_this_paper
+        return target_wise_association_for_this_paper, self.missing_words
