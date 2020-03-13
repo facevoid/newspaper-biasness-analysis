@@ -113,3 +113,44 @@ asian_languages_word_list_for_word2vec = {
     }
     
 }
+
+asian_languages_word_list_for_merged = {
+    'ja': {
+        'male_words': MALE_WORDS_JAPANESE,
+        'female_words': FEMALE_WORDS_JAPANESE,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_JAPANESE
+    },
+
+    'ko': {
+        'male_words': MALE_WORDS_KOREAN,
+        'female_words': FEMALE_WORDS_KOREAN,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_KOREAN
+    },
+    'zh': {
+        'male_words': MALE_WORDS_CHINESE,
+        'female_words': FEMALE_WORDS_CHINESE,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_CHINESE
+    },
+    'en': {
+        'male_words': MALE_WORDS_ENGLISH,
+        'female_words': FEMALE_WORDS_ENGLISH,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_ENGLISH
+    },
+    'japanese': {
+        'male_words': MALE_WORDS_JAPANESE,
+        'female_words': FEMALE_WORDS_JAPANESE,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_JAPANESE
+    },
+
+    'korean': {
+        'male_words': MALE_WORDS_KOREAN,
+        'female_words': FEMALE_WORDS_KOREAN,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_KOREAN
+    },
+    'chinese': {
+        'male_words': MALE_WORDS_CHINESE,
+        'female_words': FEMALE_WORDS_CHINESE,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_CHINESE
+    }
+    
+}

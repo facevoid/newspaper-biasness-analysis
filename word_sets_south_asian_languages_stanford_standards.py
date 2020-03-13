@@ -124,3 +124,60 @@ south_asian_language_word_list_for_word2vec = {
     }
     
 }
+
+south_asian_language_word_list_merged = {
+    'bn': {
+        'male_words': MALE_WORDS_BENGALI,
+        'female_words': FEMALE_WORDS_BENGALI,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_BENGALI
+    },
+
+    'hi': {
+        'male_words': MALE_WORDS_HINDI,
+        'female_words': FEMALE_WORDS_HINDI,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_HINDI
+    },
+    'ne': {
+        'male_words': MALE_WORDS_NEPALI,
+        'female_words': FEMALE_WORDS_NEPALI,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_NEPALI
+    },
+    'ur': {
+        'male_words': MALE_WORDS_URDU,
+        'female_words': FEMALE_WORDS_URDU,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_URDU
+    },
+    'en': {
+        'male_words': MALE_WORDS_ENGLISH,
+        'female_words': FEMALE_WORDS_ENGLISH,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_ENGLISH
+    },
+    'top-five_newspaper_300_model': {
+        'male_words': MALE_WORDS_BENGALI,
+        'female_words': FEMALE_WORDS_BENGALI,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_BENGALI
+    },
+
+    'hindi': {
+        'male_words': MALE_WORDS_HINDI,
+        'female_words': FEMALE_WORDS_HINDI,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_HINDI
+    },
+    'nepali_embeddings_word2vec': {
+        'male_words': MALE_WORDS_NEPALI,
+        'female_words': FEMALE_WORDS_NEPALI,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_NEPALI
+    },
+    'urduvec_140M_100K_300d': {
+        'male_words': MALE_WORDS_URDU,
+        'female_words': FEMALE_WORDS_URDU,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_URDU
+    },
+    'en': {
+        'male_words': MALE_WORDS_ENGLISH,
+        'female_words': FEMALE_WORDS_ENGLISH,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_ENGLISH
+    }
+    
+}
+    

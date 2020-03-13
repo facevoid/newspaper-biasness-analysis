@@ -156,3 +156,79 @@ islamic_country_languages_word_list_for_word2vec = {
     }
     
 }
+
+islamic_country_languages_word_list_for_merged = {
+    'bn': {
+        'male_words': MALE_WORDS_BENGALI,
+        'female_words': FEMALE_WORDS_BENGALI,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_BENGALI
+    },
+
+    'ur': {
+        'male_words': MALE_WORDS_URDU,
+        'female_words': FEMALE_WORDS_URDU,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_URDU
+    },
+    'ar': {
+        'male_words': MALE_WORDS_ARABIC,
+        'female_words': FEMALE_WORDS_ARABIC,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_ARABIC
+    },
+    'ms': {
+        'male_words': MALE_WORDS_MALAYSIAN,
+        'female_words': FEMALE_WORDS_MALAYSIAN,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_MALAYSIAN
+    },
+    'en': {
+        'male_words': MALE_WORDS_ENGLISH,
+        'female_words': FEMALE_WORDS_ENGLISH,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_ENGLISH
+    },
+    'id': {
+        'male_words': MALE_WORDS_INDO,
+        'female_words': FEMALE_WORDS_INDO,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_INDO
+    },
+    'top-five_newspaper_300_model': {
+        'male_words': MALE_WORDS_BENGALI,
+        'female_words': FEMALE_WORDS_BENGALI,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_BENGALI
+    },
+    'word2vec_model_100D': {
+        'male_words': MALE_WORDS_BENGALI,
+        'female_words': FEMALE_WORDS_BENGALI,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_BENGALI
+    },
+
+    'urduvec_140M_100K_300d': {
+        'male_words': MALE_WORDS_URDU,
+        'female_words': FEMALE_WORDS_URDU,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_URDU
+    },
+    'arabic-twitter_full_uni_cbow_300_twitter': {
+        'male_words': MALE_WORDS_ARABIC,
+        'female_words': FEMALE_WORDS_ARABIC,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_ARABIC
+    },
+    'arabic-wiki_full_uni_cbow_300_wiki': {
+        'male_words': MALE_WORDS_ARABIC,
+        'female_words': FEMALE_WORDS_ARABIC,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_ARABIC
+    },
+    'ms': {
+        'male_words': MALE_WORDS_MALAYSIAN,
+        'female_words': FEMALE_WORDS_MALAYSIAN,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_MALAYSIAN
+    },
+    'en': {
+        'male_words': MALE_WORDS_ENGLISH,
+        'female_words': FEMALE_WORDS_ENGLISH,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_ENGLISH
+    },
+    'id': {
+        'male_words': MALE_WORDS_INDO,
+        'female_words': FEMALE_WORDS_INDO,
+        'pr_occupations': PROFESSIONAL_OCCUPATIONS_INDO
+    }
+    
+}
